@@ -1,14 +1,16 @@
 # Enhancing Art Classification: A Comparative Study of CNN, Transfer Learning, and SVM Models
 
 ## Table of Contents 📑
-- [Overview](#overview)
-- [Dataset Information](#dataset-information)
-- [Technology and Language](#technology-and-language)
-- [Installation Instructions](#installation-instructions)
-- [System Requirements](#system-requirements)
-- [Usage Examples](#usage-examples)
+- [Overview](#overview-)
+- [Dataset Information](#dataset-information-)
+- [Technology and Language](#technology-and-language-)
+- [Installation Instructions](#installation-instructions-)
+- [System Requirements](#system-requirements-)
+- [Usage Examples](#usage-examples-)
 - [Architecture and Models](#architecture-and-models)
-- [Contact Information](#contact-information)
+- [Contributing](#contributing-)
+- [Contact Information](#contact-information-)
+- [Results](#results-)
 
 ## Overview 🎯
 
@@ -93,6 +95,22 @@ Please adhere to the terms and utilize the images only for the purposes of data 
    jupyter notebook
    ```
 
+### How to Download and Use the Dataset 📥
+
+1. **Visit the Dataset Page**: Go to the [Kaggle dataset page](https://www.kaggle.com/competitions/painter-by-numbers/data).
+2. **Download the Files**: Click on the "Download" button (you may need to sign in or create a Kaggle account).
+3. **Save the ZIP Files**: Save the downloaded ZIP files (train.zip and test.zip) to your desired directory. The code provided in the project will handle the ZIP archives directly, so there's no need to extract them manually.
+
+### Part A: Basic Explorations & Data Loading 🧐
+
+In the initial part of the code, you'll need to set the path to the directory where you saved the ZIP files. This will allow you to load the `all_data_info.csv` file and perform initial data exploration. Example-
+
+```python
+path = '/Users/adityaprakash/Downloads/PaintersDataset/'  # Set this to the directory where you saved train.zip, test.zip, and all_data_info.csv
+df_info = pd.read_csv(path+'all_data_info.csv')
+df_info.head()
+```
+
 ## System Requirements 💽
 
 ### CPU Requirements
@@ -135,6 +153,43 @@ For more detailed information about the ResNet50 architecture, refer to the [off
 ### Support Vector Machine (SVM)
 
 The SVM model used in this study utilizes different kernel functions and hyperparameter tuning to classify the artworks based on extracted features. It serves as a comparison to understand the advantages and potential limitations of deep learning models for art classification.
+
+Certainly! Here's the Results section that provides a concise summary of the outcomes from the CNN, ResNet, and SVM models. You can add this section to the existing documentation:
+
+## Results 📈
+
+The project experimented with different machine learning models to classify art images. Below are the summarized results for each approach:
+
+### Convolutional Neural Networks (CNN)
+
+The CNN model achieved a test accuracy of approximately 59.70%. The model showed progressive improvement during training and reached its best performance after 16 epochs. Here are some highlights:
+
+- **Training Accuracy**: 69.84%
+- **Validation Accuracy**: 59.69%
+- **Test Loss**: 1.2615
+- **Test Accuracy**: 59.70%
+
+### Transfer Learning with ResNet50
+
+By leveraging the ResNet50 architecture, the model achieved a significant test accuracy of approximately 72.37%. The model stopped early after 10 epochs due to no improvement in validation loss. The results are:
+
+- **Training Accuracy**: 205.25 (custom metric)
+- **Validation Accuracy**: 74.74%
+- **Test Loss**: 0.9001
+- **Test Accuracy**: 72.37%
+
+### Support Vector Machine (SVM)
+
+The SVM model, utilized as a comparative baseline, achieved a test accuracy of 55.67%. A detailed classification report shows varying performance across different classes:
+
+- **Test Accuracy**: 55.67%
+- **Precision**: Ranges from 0.37 to 0.72 across classes
+- **Recall**: Ranges from 0.29 to 0.89 across classes
+- **F1-Score**: Ranges from 0.33 to 0.78 across classes
+
+The SVM results highlight the advantages and potential limitations of using classical machine learning techniques for complex art classification tasks.
+
+These results offer valuable insights into the effectiveness of different machine learning techniques in art classification. While deep learning models like CNN and ResNet50 showed promising results, the comparative study with SVM provides a comprehensive perspective on the challenges and potentials in art classification.
 
 ## Contributing 🤝
 
